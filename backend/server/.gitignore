@@ -1,0 +1,33 @@
+# === Root Git Ignore ===
+
+# Node dependencies
+node_modules
+client/node_modules
+backend/server/node_modules
+
+# Build outputs
+client/dist
+backend/server/dist
+
+# Environment files
+.env
+backend/server/.env
+client/.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Misc
+dist
+dist-ssr
