@@ -1,0 +1,22 @@
+{
+  "name": "collegeelections",
+  "version": "1.0.0",
+  "description": "College Election System - Full Stack Application",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend/server && npm run dev",
+    "client": "cd client && npm run dev",
+    "install-all": "npm install && cd backend/server && npm install && cd ../../client && npm install",
+    "build": "cd client && npm run dev"
+  },
+  "keywords": [
+    "election",
+    "voting",
+    "college"
+  ],
+  "author": "Sharvari Gajendragadkar",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
