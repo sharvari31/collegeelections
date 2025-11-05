@@ -17,10 +17,27 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Dynamic CORS — works locally and after deployment
+// ✅ Dynamic CORS — supports multiple origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5000",
+  process.env.FRONTEND_ORIGIN,
+  process.env.FRONTEND_ORIGIN_2,
+  process.env.FRONTEND_ORIGIN_3,
+].filter(Boolean); // Remove undefined values
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN || "http://localhost:5173",
+    origin: function (origin, callback) {
+      // Allow requests with no origin (mobile apps, Postman, etc.)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Origin ${origin} not allowed by CORS`));
+      }
+    },
     credentials: true,
   })
 );
