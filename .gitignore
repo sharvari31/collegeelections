@@ -10,9 +10,9 @@ client/dist
 backend/server/dist
 
 # Environment files
-.env
-backend/server/.env
-client/.env
+#.env
+#backend/server/.env
+#client/.env
 
 # Logs
 *.log
